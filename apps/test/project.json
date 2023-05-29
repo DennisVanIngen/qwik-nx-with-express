@@ -11,7 +11,8 @@
         "outputPath": "dist/apps/test"
       },
       "configurations": {
-        "preview": {}
+        "preview": {},
+        "production": {}
       }
     },
     "build.client": {
@@ -31,6 +32,9 @@
         "preview": {
           "ssr": "src/entry.preview.tsx",
           "mode": "production"
+        },
+        "production": {
+          "configFile": "apps/test/adapters/express/vite.config.ts"
         }
       }
     },
@@ -56,6 +60,13 @@
         "mode": "ssr",
         "port": 4200
       }
+    },
+    "serve.express": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["npx nx run test:build:production", "node dist/apps/test/server/entry.express.js"]
+      },
+      "parallel": false
     },
     "serve.debug": {
       "executor": "nx:run-commands",
