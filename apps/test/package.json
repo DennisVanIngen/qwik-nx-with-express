@@ -1,3 +1,7 @@
 {
-  "name": "test"
+  "name": "test",
+  "scripts": {
+    "build.server": "vite build -c adapters/express/vite.config.ts",
+    "serve": "node server/entry.express"
+  }
 }
