@@ -64,9 +64,9 @@
     "serve.express": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["npx nx run test:build:production", "node dist/apps/test/server/entry.express.js"]
-      },
-      "parallel": false
+        "commands": ["npx nx run test:build:production", "node dist/apps/test/server/entry.express.js"],
+        "parallel": false
+      }
     },
     "serve.debug": {
       "executor": "nx:run-commands",
