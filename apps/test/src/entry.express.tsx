@@ -7,13 +7,16 @@
  * - https://qwik.builder.io/docs/deployments/node/
  *
  */
-import { createQwikCity, type PlatformNode } from '@builder.io/qwik-city/middleware/node';
+import {
+  createQwikCity,
+  type PlatformNode,
+} from '@builder.io/qwik-city/middleware/node';
 import qwikCityPlan from '@qwik-city-plan';
 import { manifest } from '@qwik-client-manifest';
 import render from './entry.ssr';
 import express from 'express';
-import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
+import { workspaceRoot } from 'nx/src/devkit-exports';
 
 declare global {
   interface QwikCityPlatform extends PlatformNode {}
@@ -22,7 +25,7 @@ declare global {
 // import compression from 'compression';
 
 // Directories where the static assets are located
-const distDir = join(fileURLToPath(import.meta.url), '..', '..', 'dist');
+const distDir = join(workspaceRoot, 'dist/apps/test/client');
 const buildDir = join(distDir, 'build');
 
 // Allow for dynamic port
